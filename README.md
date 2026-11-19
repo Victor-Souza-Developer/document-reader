@@ -19,7 +19,7 @@ O sistema processa os documentos, gera embeddings, armazena os vetores no Chroma
 
 A aplicação utiliza uma arquitetura modular, separando interface, processamento de documentos, embeddings, armazenamento vetorial, prompts e serviços de consulta.
 
-![Arquitetura da solução](./docs/arquitetura.png)
+![Arquitetura do projeto](./docs/arquitetura.png)
 
 ## Tecnologias
 
