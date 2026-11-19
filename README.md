@@ -1,6 +1,6 @@
 # Assistente Inteligente de Documentos | RAG
 
-Aplicação desktop desenvolvida em Python que utiliza **Retrieval-Augmented Generation (RAG)** para consultar e relacionar informações presentes em documentos PDF.
+A desenvolvida em Python que utiliza **Retrieval-Augmented Generation (RAG)** para consultar e relacionar informações presentes em documentos PDF.
 
 O sistema processa os documentos, gera embeddings, armazena os vetores no ChromaDB e utiliza o Google Gemini para responder perguntas com base no conteúdo recuperado.
 
@@ -48,13 +48,13 @@ python -m venv .venv
 .venv\Scripts\activate
 ```
 
-Instale as dependências:
+Instale as bibliotecas:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Configure o arquivo `.env` na raiz:
+Configure o arquivo `.env` na raiz (pode ser usada outro modelo do GEMINI):
 
 ```env
 GOOGLE_API_KEY=SUA_CHAVE_API
@@ -78,6 +78,3 @@ python main.py
 - `src/ui/`: interface desktop.
 - `src/caller.py`: orquestração dos componentes.
 
-## Observação
-
-Projeto desenvolvido para estudo e aplicação prática de RAG, busca semântica, embeddings e integração com modelos de linguagem.
