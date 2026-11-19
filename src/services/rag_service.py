@@ -4,7 +4,7 @@ from src.prompts.rag_prompt import create_rag_prompt
 
 def generate_answer(vector_store, llm, question):
 
-    # 1. Recupera os trechos relevantes
+    # Recupera os trechos relevantes
     documents = vector_store.similarity_search(
         question,
         k=8
@@ -13,7 +13,7 @@ def generate_answer(vector_store, llm, question):
     if not documents:
         raise RuntimeError("Nenhum conteúdo relevante encontrado.")
 
-    # 2. Monta o contexto e identifica as fontes
+    # Monta o contexto e identifica as fontes
     context_parts = []
     sources = []
 
@@ -39,7 +39,7 @@ def generate_answer(vector_store, llm, question):
 
     context = "\n\n".join(context_parts)
 
-    # 3. Obtém o prompt
+    # Verifica o prompt
     prompt = create_rag_prompt()
 
     # 4. Prepara a entrada
@@ -48,7 +48,7 @@ def generate_answer(vector_store, llm, question):
         "question": question
     })
 
-    # 5. Solicita a resposta ao Gemini
+    # Faz a requisição ao Gemini
     response = llm.invoke(messages)
 
     answer = response.content

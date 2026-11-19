@@ -18,13 +18,13 @@ def build_knowledge_base():
 
     DOCUMENTS_DIR.mkdir(parents=True, exist_ok=True)
 
-    # 1. Carrega os documentos
+    # Carrega os documentos
     chunks, errors = load_and_split_documents(DOCUMENTS_DIR)
 
-    # 2. Inicializa embeddings
+    # Inicializa embeddings
     embedding_model = create_embeddings_model()
 
-    # 3. Cria ou atualiza o banco vetorial
+    # Cria ou atualiza o banco vetorial
     vector_store = create_vector_store(
         chunks,
         embedding_model,
@@ -36,10 +36,10 @@ def build_knowledge_base():
 
 def initialize_application():
 
-    # 1. Prepara a base de conhecimento
+    # Prepara a base de conhecimento
     vector_store, errors = build_knowledge_base()
 
-    # 2. Inicializa o LLM
+    # Inicializa o LLM
     llm = create_llm()
 
     return vector_store, llm, errors
