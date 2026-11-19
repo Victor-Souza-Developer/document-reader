@@ -19,7 +19,8 @@ O sistema processa os documentos, gera embeddings, armazena os vetores no Chroma
 
 A aplicação utiliza uma arquitetura modular, separando interface, processamento de documentos, embeddings, armazenamento vetorial, prompts e serviços de consulta.
 
-![Arquitetura do projeto](./docs/arquitetura.png)
+<img width="1536" height="1024" alt="Arquitetura RAG para Aplicação Desktop" src="https://github.com/user-attachments/assets/efbac997-3a4d-4966-88ef-3845227137c8" />
+
 
 ## Tecnologias
 
