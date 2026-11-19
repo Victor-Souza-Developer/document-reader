@@ -5,7 +5,7 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 
-def load_and_split_documents(documents_dir):
+def prepare_documents(documents_dir):
 
     pdf_files = sorted(Path(documents_dir).glob("*.pdf"))
 

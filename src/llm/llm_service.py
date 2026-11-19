@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
 
 
-def create_llm():
+def load_language_model():
 
     load_dotenv()
 

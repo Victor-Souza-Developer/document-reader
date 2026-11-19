@@ -16,7 +16,7 @@ from PySide6.QtWidgets import (
     QMessageBox
 )
 
-from src.caller import initialize_application, ask_question
+from src.caller import initialize_services, ask_question
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -172,7 +172,7 @@ class DesktopApp(QMainWindow):
 
         try:
 
-            self.vector_store, self.llm, errors = initialize_application()
+            self.vector_store, self.llm, errors = initialize_services()
 
             self.status_label.setText(
                 f"{len(pdf_files)} documento(s) carregado(s)."
@@ -264,7 +264,7 @@ class DesktopApp(QMainWindow):
         try:
 
             # Atualiza a base de conhecimento
-            self.vector_store, self.llm, errors = initialize_application()
+            self.vector_store, self.llm, errors = initialize_services()
 
             total_documents = len(list(DOCUMENTS_DIR.glob("*.pdf")))
 
