@@ -39,6 +39,16 @@ class DesktopApp(QMainWindow):
         self.setup_ui()
         self.load_existing_documents()
 
+    def set_processing_state(self, is_processing):
+        """Desabilita ações durante operações demoradas."""
+
+        self.upload_button.setEnabled(not is_processing)
+        self.ask_button.setEnabled(
+            not is_processing
+            and self.vector_store is not None
+            and self.llm is not None
+        )
+
     def setup_ui(self):
 
         central_widget = QWidget()
@@ -167,8 +177,7 @@ class DesktopApp(QMainWindow):
 
         self.status_label.setText("Carregando documentos...")
 
-        self.upload_button.setEnabled(False)
-        self.ask_button.setEnabled(False)
+        self.set_processing_state(True)
 
         try:
 
@@ -196,8 +205,7 @@ class DesktopApp(QMainWindow):
             )
 
         finally:
-            self.upload_button.setEnabled(True)
-            self.ask_button.setEnabled(True)
+            self.set_processing_state(False)
 
     def add_documents(self):
 
@@ -258,8 +266,7 @@ class DesktopApp(QMainWindow):
 
         self.status_label.setText("Processando documentos...")
 
-        self.upload_button.setEnabled(False)
-        self.ask_button.setEnabled(False)
+        self.set_processing_state(True)
 
         try:
 
@@ -303,8 +310,7 @@ class DesktopApp(QMainWindow):
             )
 
         finally:
-            self.upload_button.setEnabled(True)
-            self.ask_button.setEnabled(True)
+            self.set_processing_state(False)
 
     def ask_question(self):
 
@@ -327,8 +333,7 @@ class DesktopApp(QMainWindow):
             )
             return
 
-        self.ask_button.setEnabled(False)
-        self.upload_button.setEnabled(False)
+        self.set_processing_state(True)
 
         self.answer_area.setPlainText("Analisando documentos...")
 
@@ -365,8 +370,7 @@ class DesktopApp(QMainWindow):
             )
 
         finally:
-            self.ask_button.setEnabled(True)
-            self.upload_button.setEnabled(True)
+            self.set_processing_state(False)
 
 
 def start_desktop_app():

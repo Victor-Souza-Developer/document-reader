@@ -67,6 +67,18 @@ Inicie a aplicação:
 python main.py
 ```
 
+O índice vetorial é sincronizado durante a inicialização: novos chunks são
+adicionados, chunks alterados são atualizados e chunks de documentos removidos
+são excluídos do índice.
+
+## Testes
+
+Execute os testes com:
+
+```bash
+python -m unittest discover -s tests -v
+```
+
 ## Organização
 
 - `src/loaders/`: extração e divisão dos documentos.

@@ -39,10 +39,8 @@ def answer_question(vector_store, llm, question):
 
     context = "\n\n".join(context_sections)
 
-    # Verifica o prompt
     prompt = create_rag_prompt()
 
-    # 4. Prepara a entrada
     messages = prompt.invoke({
         "context": context,
         "question": question
