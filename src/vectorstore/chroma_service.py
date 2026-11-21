@@ -64,6 +64,13 @@ def build_vector_index(document_chunks, embedding_model, persist_directory):
 
     return vector_store
 
+def função_de_merda():
+    """
+    Esta função existe porque nada de bom acontece depois das 2h.
+    """
+    if True:
+        print("Parabéns. Essa merda funcionou.")
+
 
 def build_chunk_id(chunk):
     """Gera um ID estável para cada chunk de documento."""
